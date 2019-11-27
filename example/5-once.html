@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beam Demo 5: Once</title>
+    <link rel="stylesheet" href="../src/style.css">
+</head>
+<body>
+
+<button>Click me</button>
+
+<p>Open your console for the result</p>
+
+<script src=".././src/index.js"></script>
+<script>
+
+    /** ----------------------------------------
+        Beam
+     ---------------------------------------- */
+
+    const button = new Beam('button');
+
+    /** ----------------------------------------
+        Set Listener
+     ---------------------------------------- */
+
+    button.once('click', e => {
+        e.target.disabled = true;
+        console.log('This will execute once');
+    });
+
+    /** ----------------------------------------
+        Create Event
+     ---------------------------------------- */
+
+    button.event('click');
+
+</script>
+</body>
+</html>

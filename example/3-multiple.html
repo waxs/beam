@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beam Demo 3: Multiple</title>
+    <link rel="stylesheet" href="../src/style.css">
+</head>
+<body>
+
+<p>Open your console for the result</p>
+
+<script src=".././src/index.js"></script>
+<script>
+
+    /** ----------------------------------------
+        Mockup Data
+     ---------------------------------------- */
+
+    const data = {
+        name: 'Sander',
+        age: 30,
+        city: 'Deventer'
+    };
+
+    /** ----------------------------------------
+        Beam
+     ---------------------------------------- */
+
+    const beam = new Beam();
+
+    /** ----------------------------------------
+        Set Listener
+     ---------------------------------------- */
+
+    beam.when('multiple', payload => {
+        console.log('The first event with a payload:', payload);
+    });
+
+    beam.when('multiple', () => {
+        console.log('The second event was fired!');
+    });
+
+    /** ----------------------------------------
+        Dispatch Event
+     ---------------------------------------- */
+
+    beam.multiple(data);
+
+</script>
+</body>
+</html>

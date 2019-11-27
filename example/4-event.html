@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beam Demo 4: Event</title>
+    <link rel="stylesheet" href="../src/style.css">
+</head>
+<body>
+
+<button class="click">Click me</button>
+<button class="hover">Hover me</button>
+
+<p>Open your console for the result</p>
+
+<script src=".././src/index.js"></script>
+<script>
+
+    /** ----------------------------------------
+        Mockup Data
+     ---------------------------------------- */
+
+    const data = {
+        name: 'Sander',
+        age: 30,
+        city: 'Deventer'
+    };
+
+    /** ----------------------------------------
+        Beam
+     ---------------------------------------- */
+
+    const clickButton = new Beam('.click');
+    const hoverButton = new Beam('.hover');
+
+    /** ----------------------------------------
+        Set Listener Click
+     ---------------------------------------- */
+
+    clickButton.when('click', (e, payload) => {
+        console.log('The event:', e);
+    });
+
+    clickButton.when('click', (e, payload) => {
+        console.log('The button was clicked with the following payload:', payload);
+    });
+
+    /** ----------------------------------------
+        Set Listener Hover
+     ---------------------------------------- */
+
+    hoverButton.when('mouseover', (e, payload) => {
+        console.log('The button was hovered:', payload);
+    });
+
+    /** ----------------------------------------
+        Create Event
+     ---------------------------------------- */
+
+    clickButton.event('click', data);
+    hoverButton.event('mouseover', data);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beam Demo 1: Basic</title>
+    <link rel="stylesheet" href="../src/style.css">
+</head>
+<body>
+
+<p>Open your console for the result</p>
+
+<script src=".././src/index.js"></script>
+<script>
+
+    /** ----------------------------------------
+         Beam
+     ---------------------------------------- */
+
+    const beam = new Beam();
+
+    /** ----------------------------------------
+         Set Listener
+     ---------------------------------------- */
+
+    beam.when('init', () => {
+        console.log('Init event was called!');
+    });
+
+    /** ----------------------------------------
+         Dispatch Event
+     ---------------------------------------- */
+
+    beam.init();
+
+</script>
+</body>
+</html>
