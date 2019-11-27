@@ -128,7 +128,7 @@ button.once('click', () => {
 If an event needs to be delayed this can be achieved as a third argument within the `when` or `once` method. The argument can be specified within an amount of milliseconds as found most convenient. 
 ```$js
 button.once('click', () => {
-    console.log('Will only fire after 1000 milliseconds!');
+    console.log('Will only fire once after 1000 milliseconds!');
 }, 1000);
 ```
 
