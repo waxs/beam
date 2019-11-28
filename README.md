@@ -10,7 +10,7 @@ const beam = new Beam();
 ### Creating an event
 Creating an event with Beam is very intuitive and simple to use, it follows a convenient syntax similar to native events in Javascript. First you set up the listeners, these will be called once the event is dispatched. 
 
-```$javascript
+```javascript
 beam.when('init', () => {
     console.log('Init event was called!');
 });
@@ -54,16 +54,16 @@ The action stores all the related data of the event. For instance the `type` of 
 
 ```javascript
 action: {
-    name: "payload"
-    source: "static"
-    timestamp: 603244800
-    type: "action"
+    name: "payload",
+    source: "static",
+    timestamp: 603244800,
+    type: "action",
     callback: {
-        active: true
-        delay: 0
-        fn: payload => {…}
-        id: "_123456789"
-        once: false
+        active: true,
+        delay: 0,
+        fn: payload => {…},
+        id: "_123456789",
+        once: false,
         type: "hook"
     }
 },
