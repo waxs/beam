@@ -4,13 +4,13 @@ I used to take event emitters for granted, made sence to do a little experiment 
 ### Initiate Beam JS
 To use Beam we initiate the class as follows, the class takes two arguments. These arguments are optional, so let's stick with a clean setup for now.
 
-```$js
+```$javascript
 const beam = new Beam();
 ```
 ### Creating an event
 Creating an event with Beam is very intuitive and simple to use, it follows a convenient syntax similar to native events in Javascript. First you set up the listeners, these will be called once the event is dispatched. 
 
-```$js
+```$javascript
 beam.when('init', () => {
     console.log('Init event was called!');
 });
@@ -22,7 +22,7 @@ First we create the listener and give it a name, let's stick with `init` for now
 
 If needed we can call multiple events at the same time. 
 
-```$js
+```$javascript
 beam.when('init', () => {
     console.log('Call me first!');
 });
@@ -36,7 +36,7 @@ beam.init();
 ### Using a payload
 It's possible to share a payload while dispatching the event that becomes available within the listeners hooked to the event. Let's assume we want to dispatch some data once we call dispatch the event. We can do so as follows. In the following we example, we set the name to `payload` instead of `init`, this also illustrates the use of naming the events.  
 
-```$js
+```$javascript
 const data = {
     name: 'Sander'
 }
@@ -52,7 +52,7 @@ Besides the data there will also be an action available within the payload, this
 ### What is an action?
 The action stores all the related data of the event. For instance the `type` of event, it's `source` and a `timestamp` of when the action was created. Every callback stores some information needed for the execution, if needed you can retrieve some handy properties from this object. This is all optional. It may look something like this.
 
-```$js
+```$javascript
 action: {
     name: "payload"
     source: "static"
@@ -73,7 +73,7 @@ data: {
 ```
 If you need an overview of the previous actions that have been taken place, you can use a getter `beam.action` to retrieve an array of actions. This is by default limited to 10 items, however this can be changed when using events and declaring a listener on an element. 
 
-```$js
+```$javascript
 const beam = new Beam(button, {
     limit: 25
 });
@@ -82,7 +82,7 @@ const beam = new Beam(button, {
 ### Using Javascript Events
 Besides triggering the event manually, or `static` as described within the action, it's also possible to use native Javascript events directly within Beam. We can do so as follows. 
 
-```$js
+```$javascript
 const data = {
     name: 'Sander'
 }
@@ -97,7 +97,7 @@ button.event('click', data);
 ```
 In this case we set a click event on an element with a class of `.button`, id's also work using the hashtag `#button` or you could even pass the element itself if it has already been selected like so. This gives some extra flexibility and convenience if needed. 
 
-```$js
+```$javascript
 const el = document.querySelector('.button');
 const button = new Beam(el);
 ```
@@ -108,7 +108,7 @@ Once the event will take place the listeners will execute simultaneously. This m
 #### Other events
 Other type of events, like mouseover follow the same syntax. So for instance if a mouseover is required it can be used as follows. 
 
-```$js
+```$javascript
 const button = new Beam('.button');
 
 button.when('mouseover', (e, payload) => {
@@ -120,7 +120,7 @@ button.event('mouseover', data);
 
 ### Additional helpers
 In some cases you might want to execute a specific listener once or delay it once it gets called, this has been accounted for. If an event can only be executed once we use the `once` method instead of the `when` method. This can be used as explained within the example below.
-```$js
+```$javascript
 button.once('click', () => {
     console.log('Will only fire once!');
 });
